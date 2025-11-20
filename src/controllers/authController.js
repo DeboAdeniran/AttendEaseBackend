@@ -3,6 +3,7 @@ const User = require("../models/User");
 const Student = require("../models/Student");
 const Lecturer = require("../models/Lecturer");
 const config = require("../config/config");
+const { profile } = require("winston");
 
 const generateToken = (userId, role) => {
   return jwt.sign({ id: userId, role }, config.jwt.secret, {
@@ -39,7 +40,7 @@ exports.register = async (req, res, next) => {
       success: true,
       message: "Registration successful",
       token,
-      user: { id: userId, email, role },
+      user: { id: userId, email, role, profile: profileData },
     });
   } catch (error) {
     next(error);
