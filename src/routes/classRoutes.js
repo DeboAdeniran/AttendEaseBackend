@@ -12,6 +12,13 @@ router.get("/", protect, classController.getAllClasses);
 // Get class by ID
 router.get("/:id", protect, classController.getClass);
 
+//Get class by class code
+router.get(
+  "/class_code/:class_code",
+  protect,
+  classController.getClassByClassCode
+);
+
 // Create new class (lecturer only)
 router.post(
   "/",

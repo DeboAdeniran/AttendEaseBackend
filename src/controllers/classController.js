@@ -41,6 +41,25 @@ exports.getClass = async (req, res, next) => {
   }
 };
 
+exports.getClassByClassCode = async (req, res, next) => {
+  try {
+    const classData = await Class.findByClassCode(req.params.class_code);
+    if (!classData) {
+      return res.status(404).json({
+        success: false,
+        message: "Class not found",
+      });
+    }
+
+    res.json({
+      success: true,
+      data: classData,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.createClass = async (req, res, next) => {
   try {
     const {

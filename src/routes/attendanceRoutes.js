@@ -58,4 +58,11 @@ router.get(
   attendanceController.getAttendanceStats
 );
 
+router.get(
+  "/lecturer/:lecturerId/recent",
+  protect,
+  authorize("lecturer"),
+  attendanceController.getLecturerRecentAttendance
+);
+
 module.exports = router;

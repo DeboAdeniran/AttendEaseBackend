@@ -35,4 +35,7 @@ router.get(
   studentController.getStudentDashboardStats
 );
 
+// Get student analytics
+router.get("/:id/analytics", protect, studentController.getStudentAnalytics);
+
 module.exports = router;
