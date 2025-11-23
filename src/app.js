@@ -10,6 +10,7 @@ const lecturerRoutes = require("./routes/lecturerRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 const classRoutes = require("./routes/classRoutes");
 const attendanceRoutes = require("./routes/attendanceRoutes");
+const qrRoutes = require("./routes/qrRoutes");
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use("/api/lecturers", lecturerRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/classes", classRoutes);
 app.use("/api/attendance", attendanceRoutes);
+app.use("/api/qr", qrRoutes);
 
 // Health check
 app.get("/api/health", (req, res) => {
